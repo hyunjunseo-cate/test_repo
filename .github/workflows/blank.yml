@@ -1,0 +1,17 @@
+name: using encrypted file
+
+on: push
+
+jobs:
+  decrypt-file:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: decrypt file
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASS_PHRASE" --output $HOME/.env .env.gpg
+        env:
+          PASS_PHRASE: ${{ secrets.PASS_PHRASE }}
+
+      - name: Print our file content
+        run: cat $HOME/.env
