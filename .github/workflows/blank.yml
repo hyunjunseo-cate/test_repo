@@ -15,4 +15,4 @@ jobs:
 
       - name: Print our file content
         run: cat $HOME/.env
-runs-on : [self-hosted,hj.seo]
+runs-on : [self-hosted, macOS, ARM64]
