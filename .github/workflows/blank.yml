@@ -4,7 +4,7 @@ on: push
 
 jobs:
   decrypt-file:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64]
     steps:
       - uses: actions/checkout@v4
 
@@ -15,4 +15,3 @@ jobs:
 
       - name: Print our file content
         run: cat $HOME/.env
-runs-on : [self-hosted, macOS, ARM64]
